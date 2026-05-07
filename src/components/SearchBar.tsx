@@ -12,7 +12,7 @@ export function SearchBar({ initialQuery = "" }: { initialQuery?: string }) {
     e.preventDefault();
     navigate({
       to: "/",
-      search: (prev) => ({ ...prev, q: value.trim() }),
+      search: (prev: Record<string, unknown>) => ({ ...prev, q: value.trim() }),
       hash: "results",
     });
   };

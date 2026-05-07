@@ -25,7 +25,7 @@ export function FilterBar({
           <button
             key={c.value}
             onClick={() =>
-              navigate({ to: "/", search: (p) => ({ ...p, category: c.value }), hash: "results" })
+              navigate({ to: "/", search: (p: Record<string, unknown>) => ({ ...p, category: c.value }), hash: "results" })
             }
             className={cn(
               "rounded-full border px-3.5 py-1.5 text-xs transition-all",
@@ -44,7 +44,7 @@ export function FilterBar({
           <button
             key={s}
             onClick={() =>
-              navigate({ to: "/", search: (p) => ({ ...p, sort: s }), hash: "results" })
+              navigate({ to: "/", search: (p: Record<string, unknown>) => ({ ...p, sort: s }), hash: "results" })
             }
             className={cn(
               "rounded-full px-3 py-1.5 transition-all",
