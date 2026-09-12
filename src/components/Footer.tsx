@@ -44,9 +44,9 @@ export function Footer() {
           © {new Date().getFullYear()} FreeDomainHub. Discovery tool — we don't register domains.
         </p>
         <div className="flex gap-3 text-muted-foreground">
-          <a href="#" aria-label="Twitter" className="hover:text-foreground"><Twitter className="h-4 w-4" /></a>
-          <a href="#" aria-label="GitHub" className="hover:text-foreground"><Github className="h-4 w-4" /></a>
-          <a href="#" aria-label="LinkedIn" className="hover:text-foreground"><Linkedin className="h-4 w-4" /></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-foreground"><Twitter className="h-4 w-4" /></a>
+          <a href="https://github.com/raju-prajapat" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-foreground"><Github className="h-4 w-4" /></a>
+          <a href="https://www.linkedin.com/in/raju-ram-839b49394" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-foreground"><Linkedin className="h-4 w-4" /></a>
         </div>
       </div>
     </footer>
