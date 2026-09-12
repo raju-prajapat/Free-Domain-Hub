@@ -33,6 +33,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Discover and compare free hosting and subdomain providers in seconds.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Index,

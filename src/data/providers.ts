@@ -43,7 +43,7 @@ export const providers: Provider[] = [
     popularity: 9,
     setupEase: 8,
     description: "Lightning-fast static hosting on Cloudflare's global edge network.",
-    signupUrl: "https://pages.cloudflare.com/",
+    signupUrl: "https://dash.cloudflare.com/sign-up",
     badges: ["Popular", "Free Tier"],
   },
   {
@@ -54,7 +54,7 @@ export const providers: Provider[] = [
     popularity: 9,
     setupEase: 7,
     description: "Host static sites directly from a GitHub repo. Perfect for portfolios.",
-    signupUrl: "https://pages.github.com/",
+    signupUrl: "https://github.com/signup",
     badges: ["Popular"],
   },
   {
@@ -65,7 +65,7 @@ export const providers: Provider[] = [
     popularity: 6,
     setupEase: 6,
     description: "Free PHP and MySQL hosting with unlimited bandwidth.",
-    signupUrl: "https://infinityfree.net/",
+    signupUrl: "https://www.infinityfree.com/register/",
     badges: ["Free Tier"],
   },
   {

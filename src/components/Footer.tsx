@@ -1,4 +1,5 @@
-import { Globe, Github, Twitter, Linkedin } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Globe, Github, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -23,9 +24,9 @@ export function Footer() {
             Product
           </h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#providers" className="hover:text-primary">Providers</a></li>
-            <li><a href="#features" className="hover:text-primary">Features</a></li>
-            <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
+            <li><Link to="/" hash="providers" className="hover:text-primary">Providers</Link></li>
+            <li><Link to="/" hash="features" className="hover:text-primary">Features</Link></li>
+            <li><Link to="/" hash="faq" className="hover:text-primary">FAQ</Link></li>
           </ul>
         </div>
         <div>
@@ -33,9 +34,9 @@ export function Footer() {
             Legal
           </h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-primary">Privacy</a></li>
-            <li><a href="#" className="hover:text-primary">Terms</a></li>
-            <li><a href="#" className="hover:text-primary">Contact</a></li>
+            <li><Link to="/privacy" className="hover:text-primary">Privacy</Link></li>
+            <li><Link to="/terms" className="hover:text-primary">Terms</Link></li>
+            <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
           </ul>
         </div>
       </div>
@@ -44,7 +45,6 @@ export function Footer() {
           © {new Date().getFullYear()} FreeDomainHub. Discovery tool — we don't register domains.
         </p>
         <div className="flex gap-3 text-muted-foreground">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-foreground"><Twitter className="h-4 w-4" /></a>
           <a href="https://github.com/raju-prajapat" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-foreground"><Github className="h-4 w-4" /></a>
           <a href="https://www.linkedin.com/in/raju-ram-839b49394" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-foreground"><Linkedin className="h-4 w-4" /></a>
         </div>
