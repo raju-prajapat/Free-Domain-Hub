@@ -65,7 +65,7 @@ export const providers: Provider[] = [
     popularity: 6,
     setupEase: 6,
     description: "Free PHP and MySQL hosting with unlimited bandwidth.",
-    signupUrl: "https://www.infinityfree.com/register/",
+    signupUrl: "https://www.infinityfree.com/",
     badges: ["Free Tier"],
   },
   {
