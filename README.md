@@ -1,4 +1,4 @@
-# 🌐 Free-Domain-Hub
+# 🌐 Free-Domain-Hub-Website
 
 A modern web platform designed to help users discover and explore **free and affordable domain options** from different domain providers.
 
