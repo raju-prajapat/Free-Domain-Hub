@@ -1,0 +1,2 @@
+- Keep provider metadata centralized in `src/data/providers.ts` and reuse it across the homepage and directory so provider facts do not drift.
+- Give each standalone content page its own TanStack route file and route-specific `head()` metadata so pages remain directly addressable and indexable.
