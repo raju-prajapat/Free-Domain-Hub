@@ -8,11 +8,11 @@ import {
 const faqs = [
   {
     q: "Are these real free domains?",
-    a: "Yes. Every provider listed offers a free domain or subdomain. Some are full hosting platforms (like Vercel), others are dedicated subdomain services (like DuckDNS).",
+    a: "The listed providers offer free hosting plans or subdomain formats, subject to each provider’s current terms. A suggested name is not a live availability check, and the provider confirms whether you can use it.",
   },
   {
     q: "Can I connect my own custom domain later?",
-    a: "Most providers (Vercel, Netlify, Cloudflare Pages, etc.) let you attach a custom domain on top of their free subdomain whenever you're ready.",
+    a: "Many listed hosting providers support custom domains, but features and plan requirements vary. Check the provider’s current documentation before choosing.",
   },
   {
     q: "Do you register domains directly?",
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "Is this tool free to use?",
-    a: "Yes — completely free. We may add optional features in the future, but the core search will always be free.",
+    a: "Yes. Searching and comparing the suggested provider formats is free.",
   },
   {
     q: "Can I add or request more providers?",
@@ -36,7 +36,7 @@ export function FAQ() {
       </div>
       <Accordion type="single" collapsible className="glass-card rounded-2xl px-6">
         {faqs.map((f, i) => (
-          <AccordionItem key={i} value={`i-${i}`} className="border-border/60">
+          <AccordionItem key={f.q} value={`faq-${i}`} className="border-border/60">
             <AccordionTrigger className="text-left text-base font-medium">{f.q}</AccordionTrigger>
             <AccordionContent className="text-sm text-muted-foreground">{f.a}</AccordionContent>
           </AccordionItem>

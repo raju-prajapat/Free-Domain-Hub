@@ -14,7 +14,7 @@ import { Toaster } from "@/components/ui/sonner";
 
 const searchSchema = z.object({
   q: fallback(z.string(), "").default(""),
-  category: fallback(z.enum(["all", "hosting", "static", "subdomain"]), "all").default("all"),
+  category: fallback(z.enum(["all", "hosting", "static", "subdomain", "easy"]), "all").default("all"),
   sort: fallback(z.enum(["popular", "easiest"]), "popular").default("popular"),
 });
 
@@ -22,16 +22,16 @@ export const Route = createFileRoute("/")({
   validateSearch: zodValidator(searchSchema),
   head: () => ({
     meta: [
-      { title: "FreeDomainHub — Find Free Domains Instantly" },
+      { title: "FreeDomainHub — Find Free Domains & Subdomains" },
       {
         name: "description",
         content:
-          "Search free website domains and subdomains from trusted providers like Vercel, Netlify, Cloudflare Pages, and GitHub Pages — all in one place.",
+          "Discover suggested website domains and subdomains from popular hosting providers in one place. Check names and free-tier terms with providers.",
       },
-      { property: "og:title", content: "FreeDomainHub — Find Free Domains Instantly" },
+      { property: "og:title", content: "FreeDomainHub — Find Free Domains & Subdomains" },
       {
         property: "og:description",
-        content: "Discover and compare free hosting and subdomain providers in seconds.",
+        content: "Discover and compare suggested hosting and subdomain formats. Availability is confirmed by each provider.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
