@@ -9,13 +9,15 @@ export interface Suggestion extends Provider {
 
 export function slugify(input: string): string {
   return input
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .trim()
-    .replace(/[._\s]+/g, "-") // Replace dots, underscores, and spaces with hyphens
-    .replace(/[^a-z0-9-]+/g, "") // Remove everything else
-    .replace(/-+/g, "-") // Collapse multiple hyphens
-    .replace(/^-+|-+$/g, "") // Trim leading/trailing hyphens
-    .slice(0, 32) || "myapp";
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 32)
+    .replace(/-+$/g, "");
 }
 
 export function generateSuggestions(
@@ -31,7 +33,7 @@ export function generateSuggestions(
 
   if (category !== "all") {
     if (category === "easy") {
-      list = list.filter((p) => p.setupEase >= 8);
+      list = list.filter((p) => p.badges.includes("Easy Setup"));
     } else {
       list = list.filter((p) => p.category === category);
     }

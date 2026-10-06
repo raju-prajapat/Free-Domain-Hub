@@ -24,7 +24,7 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, delay: index * 0.05 }}
+      transition={{ duration: 0.25, delay: index * 0.035 }}
       className="glass-card group relative flex flex-col rounded-2xl p-5 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-glow)] border border-border/50"
     >
       <div className="mb-4 flex items-start justify-between gap-3">
@@ -52,6 +52,8 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
 
       <button
         onClick={copy}
+        type="button"
+        aria-label={`Copy suggested format ${s.example}`}
         className="group/copy mb-4 flex items-center justify-between gap-2 rounded-xl border border-border/60 bg-background/30 px-3 py-2.5 text-left text-sm font-mono transition-all hover:border-primary/40 hover:bg-background/50"
         title="Click to copy domain"
       >
@@ -80,12 +82,12 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
           asChild
           className="bg-gradient-primary flex-1 rounded-xl text-white shadow-md hover:opacity-95 transition-all"
         >
-          <a href={s.signupUrl} target="_blank" rel="noopener noreferrer">
+          <a href={s.signupUrl} target="_blank" rel="noopener noreferrer" aria-label={`Check ${s.name} signup and confirm availability`}>
             Use This
           </a>
         </Button>
         <Button asChild variant="outline" className="rounded-xl border-border/60 hover:bg-accent group-hover:border-primary/30">
-          <a href={s.officialUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3">
+          <a href={s.officialUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${s.name} official website`} className="flex items-center gap-2 px-3">
             <span className="text-xs font-medium">Visit</span>
             <ExternalLink className="h-3.5 w-3.5" />
           </a>
