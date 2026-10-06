@@ -52,6 +52,8 @@ export function Header() {
             onClick={() => setIsOpen(!isOpen)}
             className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/50 bg-background/50 text-muted-foreground transition-colors hover:text-foreground md:hidden"
             aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -60,6 +62,7 @@ export function Header() {
 
       {/* Mobile Nav */}
       <div
+        id="mobile-navigation"
         className={cn(
           "fixed inset-0 top-[88px] z-40 bg-background/95 backdrop-blur-xl md:hidden transition-all duration-300 ease-in-out",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-4"

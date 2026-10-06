@@ -72,16 +72,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FreeDomainHub" },
-      { name: "description", content: "Find free website domains and subdomains from trusted providers." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "FreeDomainHub" },
-      { name: "twitter:title", content: "FreeDomainHub" },
-      { property: "og:description", content: "Find free website domains and subdomains from trusted providers." },
-      { name: "twitter:description", content: "Find free website domains and subdomains from trusted providers." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/e749426d-b0a2-49cd-87d8-ffb9f5007b05" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/e749426d-b0a2-49cd-87d8-ffb9f5007b05" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

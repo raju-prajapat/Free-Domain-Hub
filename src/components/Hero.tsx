@@ -27,11 +27,16 @@ export function Hero({ initialQuery }: { initialQuery: string }) {
         </h1>
 
         <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-          Search working free website domains and subdomains from trusted providers in one place.
+          Discover suggested website domains and subdomains from popular providers in one place. Availability is confirmed by each provider.
         </p>
 
         <div className="mt-10">
           <SearchBar initialQuery={initialQuery} />
+          <div className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground" aria-label="FreeDomainHub facts">
+            <span>8 providers</span>
+            <span>Free to search</span>
+            <span>No registration required</span>
+          </div>
           <p className="mt-3 text-xs text-muted-foreground">
             Try{" "}
             {["taskly", "novalabs", "myportfolio"].map((s, i) => (
