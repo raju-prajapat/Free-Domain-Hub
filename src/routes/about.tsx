@@ -9,8 +9,12 @@ export const Route = createFileRoute("/about")({
       { title: "About FreeDomainHub — How It Works" },
       {
         name: "description",
-        content: "Learn how FreeDomainHub helps you discover free domains and subdomains for your projects.",
+        content: "Learn how FreeDomainHub helps compare suggested domain formats without registering domains or guaranteeing availability.",
       },
+      { property: "og:title", content: "About FreeDomainHub — How It Works" },
+      { property: "og:description", content: "FreeDomainHub is a discovery platform, not a domain registrar or an availability checker." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: About,

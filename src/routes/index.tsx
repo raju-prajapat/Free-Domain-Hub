@@ -11,11 +11,13 @@ import { FAQ } from "@/components/FAQ";
 import { EmailCapture } from "@/components/EmailCapture";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { MotionConfig } from "framer-motion";
+import type { CategoryFilter, SortKey } from "@/lib/generateSuggestions";
 
 const searchSchema = z.object({
   q: fallback(z.string(), "").default(""),
-  category: fallback(z.enum(["all", "hosting", "static", "subdomain", "easy"]), "all").default("all"),
-  sort: fallback(z.enum(["popular", "easiest"]), "popular").default("popular"),
+  category: fallback(z.string(), "all").default("all"),
+  sort: fallback(z.string(), "popular").default("popular"),
 });
 
 export const Route = createFileRoute("/")({
@@ -42,12 +44,17 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const { q, category, sort } = Route.useSearch();
+  const query = q.slice(0, 100);
+  const safeCategory: CategoryFilter = ["all", "hosting", "static", "subdomain", "easy"].includes(category)
+    ? (category as CategoryFilter)
+    : "all";
+  const safeSort: SortKey = ["popular", "easiest"].includes(sort) ? (sort as SortKey) : "popular";
   return (
     <div className="min-h-screen">
       <Header />
       <main>
-        <Hero initialQuery={q} />
-        <ResultsGrid query={q} category={category} sort={sort} />
+        <Hero initialQuery={query} />
+        <ResultsGrid query={query} category={safeCategory} sort={safeSort} />
         <PopularProviders />
         <Features />
         <Testimonials />
