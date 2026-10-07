@@ -11,6 +11,7 @@ export const Route = createFileRoute("/terms")({
       { property: "og:description", content: "Terms governing your use of the FreeDomainHub discovery tool." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/terms" },
     ],
   }),
   component: TermsPage,

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { generateSuggestions, type CategoryFilter, type SortKey } from "@/lib/generateSuggestions";
+import { generateSuggestions, slugify, type CategoryFilter, type SortKey } from "@/lib/generateSuggestions";
 import { ResultCard } from "./ResultCard";
 import { FilterBar } from "./FilterBar";
 import { Search, Info } from "lucide-react";
@@ -23,6 +23,7 @@ export function ResultsGrid({
   );
 
   const hasQuery = query.trim().length > 0;
+  const invalidQuery = hasQuery && !slugify(query);
 
   return (
     <section id="results" className="mx-auto max-w-6xl px-4 py-20">
@@ -45,7 +46,7 @@ export function ResultsGrid({
 
       <FilterBar category={category} sort={sort} />
 
-      {suggestions.length === 0 ? (
+      {invalidQuery || suggestions.length === 0 ? (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -54,9 +55,13 @@ export function ResultsGrid({
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent/50">
               <Search className="h-8 w-8 text-muted-foreground" />
             </div>
-            <h3 className="text-lg font-semibold mb-2">No matching providers</h3>
+            <h3 className="text-lg font-semibold mb-2">
+              {invalidQuery ? "That project name needs a change" : "No matching providers"}
+            </h3>
             <p className="text-sm text-muted-foreground mb-6">
-              Try adjusting your filters or search for something else like "portfolio", "taskly", or "my-app".
+              {invalidQuery
+                ? "Use at least one letter or number, such as portfolio, taskly, or nova."
+                : "Try adjusting your filters or search for something else like portfolio, taskly, or my-app."}
             </p>
             <Button
               type="button"

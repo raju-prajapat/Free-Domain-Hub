@@ -27,7 +27,7 @@ export function Hero({ initialQuery }: { initialQuery: string }) {
         </h1>
 
         <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-          Discover suggested website domains and subdomains from popular providers in one place. Availability is confirmed by each provider.
+            Discover suggested website domains and subdomains from popular providers in one place. Final availability is confirmed by each provider.
         </p>
 
         <div className="mt-10">

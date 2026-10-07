@@ -31,7 +31,6 @@ export function FilterBar({
             onClick={() =>
               void navigate({ to: "/", search: (p) => ({ ...p, category: c.value }) })
             }
-            aria-pressed={category === c.value}
             className={cn(
               "rounded-full border px-4 py-1.5 text-xs font-medium transition-all",
               category === c.value

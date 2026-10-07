@@ -11,12 +11,25 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
 
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(s.example);
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(s.example);
+      } else {
+        const input = document.createElement("textarea");
+        input.value = s.example;
+        input.setAttribute("readonly", "");
+        input.style.position = "fixed";
+        input.style.opacity = "0";
+        document.body.appendChild(input);
+        input.select();
+        const copiedToClipboard = document.execCommand("copy");
+        input.remove();
+        if (!copiedToClipboard) throw new Error("Clipboard unavailable");
+      }
       setCopied(true);
       toast.success(`Copied: ${s.example}`);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      toast.error("Failed to copy to clipboard");
+    } catch {
+      toast.error("Could not copy this suggestion. Please copy it manually.");
     }
   };
 
@@ -50,11 +63,13 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
         </div>
       </div>
 
-      <button
+      <Button
         onClick={copy}
         type="button"
+        variant="ghost"
+        disabled={copied}
         aria-label={`Copy suggested format ${s.example}`}
-        className="group/copy mb-4 flex items-center justify-between gap-2 rounded-xl border border-border/60 bg-background/30 px-3 py-2.5 text-left text-sm font-mono transition-all hover:border-primary/40 hover:bg-background/50"
+        className="group/copy mb-4 flex h-auto w-full items-center justify-between gap-2 rounded-xl border border-border/60 bg-background/30 px-3 py-2.5 text-left text-sm font-mono transition-all hover:border-primary/40 hover:bg-background/50"
         title="Click to copy domain"
       >
         <span className="truncate text-foreground/90">{s.example}</span>
@@ -66,7 +81,7 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
         ) : (
           <Copy className="h-3.5 w-3.5 shrink-0 text-muted-foreground group-hover/copy:text-foreground" />
         )}
-      </button>
+      </Button>
 
       <p className="mb-5 flex-1 text-sm text-muted-foreground leading-relaxed">
         {s.description}
@@ -83,7 +98,7 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
           className="bg-gradient-primary flex-1 rounded-xl text-white shadow-md hover:opacity-95 transition-all"
         >
           <a href={s.signupUrl} target="_blank" rel="noopener noreferrer" aria-label={`Check ${s.name} signup and confirm availability`}>
-            Use This
+          Check with provider
           </a>
         </Button>
         <Button asChild variant="outline" className="rounded-xl border-border/60 hover:bg-accent group-hover:border-primary/30">
