@@ -26,6 +26,7 @@ export function generateSuggestions(
   sort: SortKey = "popular",
 ): Suggestion[] {
   const slug = slugify(query);
+  if (!slug) return [];
   let list = providers.map((p) => ({
     ...p,
     example: p.formatTemplate.replace("{name}", slug),

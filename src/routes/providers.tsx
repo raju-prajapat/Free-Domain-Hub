@@ -31,6 +31,7 @@ export const Route = createFileRoute("/providers")({
       { property: "og:description", content: "Compare eight free hosting and subdomain providers and visit their official websites." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/providers" },
     ],
   }),
   component: ProvidersPage,
@@ -96,7 +97,7 @@ function ProvidersPage() {
             </div>
             <p className="mt-4 flex-1 text-sm text-muted-foreground">{provider.description}</p>
             <code className="mt-4 break-all rounded-md border border-border/60 bg-background/40 px-3 py-2 text-xs">{provider.formatTemplate.replace("{name}", slugify(q) || "yourapp")}</code>
-            <div className="mt-3 flex flex-wrap gap-1.5">{provider.badges.map((badge) => <span key={badge} className="rounded-full border border-primary/30 bg-primary/10 px-2 py-1 text-xs text-primary">{badge}</span>)}</div>
+            <div className="mt-3 flex flex-wrap gap-1.5"><span className="rounded-full border border-border px-2 py-1 text-xs text-muted-foreground">Suggested</span>{provider.badges.map((badge) => <span key={badge} className="rounded-full border border-primary/30 bg-primary/10 px-2 py-1 text-xs text-primary">{badge}</span>)}</div>
             <p className="mt-3 text-xs text-muted-foreground">Setup ease {provider.setupEase}/10 · Popularity {provider.popularity}/10</p>
             <a className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-gradient-primary px-4 text-sm font-medium text-white" href={provider.officialUrl} target="_blank" rel="noopener noreferrer">Visit official provider <ExternalLink className="h-4 w-4" /></a>
           </article>)}

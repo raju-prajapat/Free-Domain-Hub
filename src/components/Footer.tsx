@@ -24,7 +24,7 @@ export function Footer() {
             Product
           </h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/" hash="providers" className="hover:text-primary">Providers</Link></li>
+            <li><Link to="/providers" className="hover:text-primary">Providers</Link></li>
             <li><Link to="/" hash="features" className="hover:text-primary">Features</Link></li>
             <li><Link to="/" hash="faq" className="hover:text-primary">FAQ</Link></li>
           </ul>

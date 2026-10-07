@@ -37,6 +37,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/" },
     ],
   }),
   component: Index,
@@ -50,6 +51,7 @@ function Index() {
     : "all";
   const safeSort: SortKey = ["popular", "easiest"].includes(sort) ? (sort as SortKey) : "popular";
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen">
       <Header />
       <main>
@@ -64,5 +66,6 @@ function Index() {
       <Footer />
       <Toaster theme="dark" />
     </div>
+    </MotionConfig>
   );
 }

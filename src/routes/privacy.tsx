@@ -11,6 +11,7 @@ export const Route = createFileRoute("/privacy")({
       { property: "og:description", content: "Learn how FreeDomainHub handles search and visitor information." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/privacy" },
     ],
   }),
   component: PrivacyPage,

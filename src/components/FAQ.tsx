@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "Can I add or request more providers?",
-    a: "Absolutely. We're constantly expanding the list. Use the email form below to suggest a provider you'd like to see.",
+    a: "Suggestions are welcome. The email form is not connected, so no address or message is collected; use the Contact page to reach us.",
   },
 ];
 
