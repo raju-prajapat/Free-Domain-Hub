@@ -1,4 +1,5 @@
 import { providers } from "@/data/providers";
+import { isSafeExternalUrl } from "@/lib/providerAvailability";
 
 export function PopularProviders() {
   const top = [...providers].sort((a, b) => b.popularity - a.popularity).slice(0, 8);
@@ -14,7 +15,7 @@ export function PopularProviders() {
         {top.map((p) => (
           <a
             key={p.id}
-            href={p.signupUrl}
+            href={isSafeExternalUrl(p.signupUrl) ? p.signupUrl : p.officialUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="glass-card rounded-xl px-4 py-5 text-center transition-all hover:-translate-y-0.5 hover:border-primary/40"

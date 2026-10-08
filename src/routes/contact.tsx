@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -19,7 +21,7 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-4 py-16 sm:py-24">
+    <div className="min-h-screen"><Header /><main className="mx-auto min-h-screen max-w-3xl px-4 py-16 sm:py-24">
       <Button asChild variant="ghost" className="mb-10">
         <Link to="/"><ArrowLeft className="h-4 w-4" />Back to FreeDomainHub</Link>
       </Button>
@@ -30,5 +32,6 @@ function ContactPage() {
         <a className="glass-card rounded-lg p-6 transition-colors hover:border-primary/50" href="https://www.linkedin.com/in/raju-ram-839b49394" target="_blank" rel="noopener noreferrer"><Linkedin className="mb-4 h-7 w-7 text-primary" /><span className="font-display font-semibold">LinkedIn</span><p className="mt-1 text-sm text-muted-foreground">Raju Ram</p></a>
       </div>
     </main>
+    <Footer /></div>
   );
 }

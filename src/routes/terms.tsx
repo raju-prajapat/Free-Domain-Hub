@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -19,7 +21,7 @@ export const Route = createFileRoute("/terms")({
 
 function TermsPage() {
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-4 py-16 sm:py-24">
+    <div className="min-h-screen"><Header /><main className="mx-auto min-h-screen max-w-3xl px-4 py-16 sm:py-24">
       <Button asChild variant="ghost" className="mb-10">
         <Link to="/"><ArrowLeft className="h-4 w-4" />Back to FreeDomainHub</Link>
       </Button>
@@ -31,5 +33,6 @@ function TermsPage() {
         <section><h2 className="mb-2 text-lg font-semibold text-foreground">Third-party services</h2><p>You are responsible for reviewing and accepting a provider’s terms before using its service.</p></section>
       </div>
     </main>
+    <Footer /></div>
   );
 }

@@ -21,7 +21,7 @@ export function Hero({ initialQuery }: { initialQuery: string }) {
           <span className="text-muted-foreground">Discover free domains from trusted providers</span>
         </div>
 
-        <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
+        <h1 className="font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
           Find <span className="text-gradient">Free Domains</span>
           <br /> Instantly
         </h1>

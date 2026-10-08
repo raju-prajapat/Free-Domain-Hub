@@ -90,7 +90,7 @@ export function ResultsGrid({
           <span className="text-xs font-bold uppercase tracking-wider">Disclaimer</span>
         </div>
         <p className="text-xs text-muted-foreground leading-relaxed">
-          These are suggested domain formats, not availability checks. Final availability, eligibility, and terms are confirmed exclusively by the respective providers. 
+          These are suggested domain formats. Final availability and eligibility are confirmed by the provider. FreeDomainHub does not check live availability. 
           FreeDomainHub is not a registrar and does not guarantee domain acquisition.
         </p>
       </div>

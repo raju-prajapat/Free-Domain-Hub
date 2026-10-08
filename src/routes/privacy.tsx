@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -19,7 +21,7 @@ export const Route = createFileRoute("/privacy")({
 
 function PrivacyPage() {
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-4 py-16 sm:py-24">
+    <div className="min-h-screen"><Header /><main className="mx-auto min-h-screen max-w-3xl px-4 py-16 sm:py-24">
       <Button asChild variant="ghost" className="mb-10">
         <Link to="/"><ArrowLeft className="h-4 w-4" />Back to FreeDomainHub</Link>
       </Button>
@@ -31,5 +33,6 @@ function PrivacyPage() {
         <section><h2 className="mb-2 text-lg font-semibold text-foreground">Updates</h2><p>This policy may be updated as the service changes. The latest version will always appear on this page.</p></section>
       </div>
     </main>
+    <Footer /></div>
   );
 }
