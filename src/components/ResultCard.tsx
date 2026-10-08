@@ -18,8 +18,7 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
         const input = document.createElement("textarea");
         input.value = s.example;
         input.setAttribute("readonly", "");
-        input.style.position = "fixed";
-        input.style.opacity = "0";
+        input.className = "fixed left-0 top-0 opacity-0 pointer-events-none";
         document.body.appendChild(input);
         input.select();
         const copiedToClipboard = document.execCommand("copy");
@@ -52,6 +51,7 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
           </div>
         </div>
         <div className="flex flex-wrap justify-end gap-1">
+          <Badge variant="outline" className="border-border text-[9px] px-1.5 py-0 text-muted-foreground">Suggested</Badge>
           {s.badges.map((b) => (
             <Badge
               key={b}

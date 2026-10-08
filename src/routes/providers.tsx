@@ -93,7 +93,7 @@ function ProvidersPage() {
         {filteredProviders.length ? <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProviders.map((provider) => <article key={provider.id} className="glass-card flex min-w-0 flex-col rounded-xl p-5">
             <div className="flex items-center gap-3">
-              <img src={provider.logo} alt={`${provider.name} logo`} loading="lazy" className="h-9 w-9 rounded-md bg-background object-contain p-1" />
+            <img src={provider.logo} alt={`${provider.name} logo`} loading="lazy" onError={(event) => { event.currentTarget.hidden = true; }} className="h-9 w-9 rounded-md bg-background object-contain p-1" />
               <div className="min-w-0"><h2 className="font-display text-lg font-semibold">{provider.name}</h2><p className="text-xs capitalize text-muted-foreground">{provider.category}</p></div>
             </div>
             <p className="mt-4 flex-1 text-sm text-muted-foreground">{provider.description}</p>
