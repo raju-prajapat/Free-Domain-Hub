@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Discover suggested website domains and subdomains from popular hosting providers in one place. Check names and free-tier terms with providers.",
+          "Discover free domains and subdomains from popular hosting providers in one place.",
       },
       { property: "og:title", content: "FreeDomainHub — Find Free Domains & Subdomains" },
       {

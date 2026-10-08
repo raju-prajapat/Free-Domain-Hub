@@ -3,7 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { providers, type ProviderCategory } from "@/data/providers";
+import { providers } from "@/data/providers";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
 import { z } from "zod";
 import { useNavigate } from "@tanstack/react-router";
@@ -11,6 +11,7 @@ import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { ExternalLink, Search } from "lucide-react";
 import { slugify } from "@/lib/generateSuggestions";
 import { cn } from "@/lib/utils";
+import { isSafeExternalUrl } from "@/lib/providerAvailability";
 
 const searchSchema = z.object({
   q: fallback(z.string(), "").default(""),
@@ -99,7 +100,7 @@ function ProvidersPage() {
             <code className="mt-4 break-all rounded-md border border-border/60 bg-background/40 px-3 py-2 text-xs">{provider.formatTemplate.replace("{name}", slugify(q) || "yourapp")}</code>
             <div className="mt-3 flex flex-wrap gap-1.5"><span className="rounded-full border border-border px-2 py-1 text-xs text-muted-foreground">Suggested</span>{provider.badges.map((badge) => <span key={badge} className="rounded-full border border-primary/30 bg-primary/10 px-2 py-1 text-xs text-primary">{badge}</span>)}</div>
             <p className="mt-3 text-xs text-muted-foreground">Setup ease {provider.setupEase}/10 · Popularity {provider.popularity}/10</p>
-            <a className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-gradient-primary px-4 text-sm font-medium text-white" href={provider.officialUrl} target="_blank" rel="noopener noreferrer">Visit official provider <ExternalLink className="h-4 w-4" /></a>
+            {isSafeExternalUrl(provider.officialUrl) && <a className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-gradient-primary px-4 text-sm font-medium text-white" href={provider.officialUrl} target="_blank" rel="noopener noreferrer">Visit official provider <ExternalLink className="h-4 w-4" /></a>}
           </article>)}
         </div> : <p className="py-14 text-center text-muted-foreground">No providers match. Try a provider name, “static”, “hosting”, or “easy setup”.</p>}
         <p className="mt-8 text-center text-xs text-muted-foreground">Suggested formats only. The provider confirms final availability, eligibility, and terms.</p>

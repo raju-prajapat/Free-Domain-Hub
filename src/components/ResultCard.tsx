@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Suggestion } from "@/lib/generateSuggestions";
+import { isSafeExternalUrl } from "@/lib/providerAvailability";
 
 export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
   const [copied, setCopied] = useState(false);
@@ -97,12 +98,12 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
           asChild
           className="bg-gradient-primary flex-1 rounded-xl text-white shadow-md hover:opacity-95 transition-all"
         >
-          <a href={s.signupUrl} target="_blank" rel="noopener noreferrer" aria-label={`Check ${s.name} signup and confirm availability`}>
+          <a href={isSafeExternalUrl(s.signupUrl) ? s.signupUrl : s.officialUrl} target="_blank" rel="noopener noreferrer" aria-label={`Check ${s.name} signup and confirm availability`}>
           Check with provider
           </a>
         </Button>
         <Button asChild variant="outline" className="rounded-xl border-border/60 hover:bg-accent group-hover:border-primary/30">
-          <a href={s.officialUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${s.name} official website`} className="flex items-center gap-2 px-3">
+          <a href={isSafeExternalUrl(s.officialUrl) ? s.officialUrl : s.signupUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${s.name} official website`} className="flex items-center gap-2 px-3">
             <span className="text-xs font-medium">Visit</span>
             <ExternalLink className="h-3.5 w-3.5" />
           </a>
