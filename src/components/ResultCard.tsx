@@ -12,16 +12,23 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
 
   const copy = async () => {
     try {
+      let copiedToClipboard = false;
       if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(s.example);
-      } else {
+        try {
+          await navigator.clipboard.writeText(s.example);
+          copiedToClipboard = true;
+        } catch {
+          copiedToClipboard = false;
+        }
+      }
+      if (!copiedToClipboard) {
         const input = document.createElement("textarea");
         input.value = s.example;
         input.setAttribute("readonly", "");
         input.className = "fixed left-0 top-0 opacity-0 pointer-events-none";
         document.body.appendChild(input);
         input.select();
-        const copiedToClipboard = document.execCommand("copy");
+        copiedToClipboard = document.execCommand("copy");
         input.remove();
         if (!copiedToClipboard) throw new Error("Clipboard unavailable");
       }
@@ -69,7 +76,7 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
         type="button"
         variant="ghost"
         disabled={copied}
-        aria-label={`Copy suggested format ${s.example}`}
+        aria-label={copied ? `Copied suggested format ${s.example}` : `Copy suggested format ${s.example}`}
         className="group/copy mb-4 flex h-auto w-full items-center justify-between gap-2 rounded-xl border border-border/60 bg-background/30 px-3 py-2.5 text-left text-sm font-mono transition-all hover:border-primary/40 hover:bg-background/50"
         title="Click to copy domain"
       >
