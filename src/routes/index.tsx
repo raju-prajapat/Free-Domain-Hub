@@ -52,20 +52,20 @@ function Index() {
   const safeSort: SortKey = ["popular", "easiest"].includes(sort) ? (sort as SortKey) : "popular";
   return (
     <MotionConfig reducedMotion="user">
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero initialQuery={query} />
-        <ResultsGrid query={query} category={safeCategory} sort={safeSort} />
-        <PopularProviders />
-        <Features />
-        <Testimonials />
-        <FAQ />
-        <EmailCapture />
-      </main>
-      <Footer />
-      <Toaster theme="dark" />
-    </div>
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          <Hero initialQuery={query} />
+          <ResultsGrid query={query} category={safeCategory} sort={safeSort} />
+          <PopularProviders />
+          <Features />
+          <Testimonials />
+          <FAQ />
+          <EmailCapture />
+        </main>
+        <Footer />
+        <Toaster theme="dark" />
+      </div>
     </MotionConfig>
   );
 }
