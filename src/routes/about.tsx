@@ -15,8 +15,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:description", content: "FreeDomainHub is a discovery platform, not a domain registrar or an availability checker." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/about" },
     ],
+    links: [{ rel: "canonical", href: "https://freedomainhub.lovable.app/about" }],
   }),
   component: About,
 });

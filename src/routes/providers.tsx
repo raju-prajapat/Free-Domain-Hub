@@ -32,8 +32,8 @@ export const Route = createFileRoute("/providers")({
       { property: "og:description", content: "Compare eight free hosting and subdomain providers and visit their official websites." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/providers" },
     ],
+    links: [{ rel: "canonical", href: "https://freedomainhub.lovable.app/providers" }],
   }),
   component: ProvidersPage,
 });
@@ -76,7 +76,7 @@ function ProvidersPage() {
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Compare provider types, setup ease, example formats, and official destinations. Suggested names are not availability checks.</p>
         </header>
         <form onSubmit={submit} className="mx-auto mb-6 flex max-w-2xl gap-2">
-          <Input aria-label="Search providers" placeholder="Search providers or features" value={term} maxLength={100} onChange={(event) => setTerm(event.target.value)} />
+          <Input aria-label="Search providers" placeholder="Search provider names or features" value={term} maxLength={100} onChange={(event) => setTerm(event.target.value)} />
           <Button type="submit" className="bg-gradient-primary text-white"><Search className="mr-2 h-4 w-4" />Search</Button>
         </form>
         <div className="mb-8 flex flex-wrap justify-center gap-2" aria-label="Filter providers by type">
