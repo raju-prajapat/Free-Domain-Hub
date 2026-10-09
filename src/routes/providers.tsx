@@ -90,7 +90,7 @@ function ProvidersPage() {
             </select>
           </label>
         </div>
-        {filteredProviders.length ? <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {filteredProviders.length ? <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProviders.map((provider) => <article key={provider.id} className="glass-card flex min-w-0 flex-col rounded-xl p-5">
             <div className="flex items-center gap-3">
             <img src={provider.logo} alt={`${provider.name} logo`} loading="lazy" onError={(event) => { event.currentTarget.hidden = true; }} className="h-9 w-9 rounded-md bg-background object-contain p-1" />

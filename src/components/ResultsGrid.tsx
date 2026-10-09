@@ -76,7 +76,7 @@ export function ResultsGrid({
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid min-w-0 grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {suggestions.map((s, i) => (
               <ResultCard key={s.id} s={s} index={i} />

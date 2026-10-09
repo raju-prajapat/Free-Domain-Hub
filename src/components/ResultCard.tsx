@@ -41,7 +41,7 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
   };
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25, delay: index * 0.035 }}
@@ -116,6 +116,6 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
           </a>
         </Button>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }

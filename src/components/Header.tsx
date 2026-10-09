@@ -66,6 +66,8 @@ export function Header() {
       {/* Mobile Nav */}
       <div
         id="mobile-navigation"
+        aria-hidden={!isOpen}
+        inert={!isOpen}
         className={cn(
           "fixed inset-0 top-[88px] z-40 bg-background/95 backdrop-blur-xl md:hidden transition-all duration-300 ease-in-out",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-4"
