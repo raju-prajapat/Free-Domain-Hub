@@ -13,8 +13,8 @@ export const Route = createFileRoute("/contact")({
       { property: "og:description", content: "Contact the creator of FreeDomainHub on GitHub or LinkedIn." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/contact" },
     ],
+    links: [{ rel: "canonical", href: "https://freedomainhub.lovable.app/contact" }],
   }),
   component: ContactPage,
 });

@@ -9,6 +9,7 @@ import { isSafeExternalUrl } from "@/lib/providerAvailability";
 
 export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
   const [copied, setCopied] = useState(false);
+  const [logoFailed, setLogoFailed] = useState(false);
 
   const copy = async () => {
     try {
@@ -41,7 +42,7 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
   };
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25, delay: index * 0.035 }}
@@ -50,7 +51,11 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
       <div className="mb-4 flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background/50 border border-border/50 p-2">
-            <img src={s.logo} alt={s.name} className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+            {logoFailed ? (
+              <span aria-hidden="true" className="font-display text-xs font-bold text-muted-foreground">{s.name.slice(0, 2).toUpperCase()}</span>
+            ) : (
+              <img src={s.logo} alt={`${s.name} logo`} onError={() => setLogoFailed(true)} className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+            )}
           </div>
           <div>
             <h3 className="font-display text-lg font-semibold leading-tight">{s.name}</h3>
@@ -116,6 +121,6 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
           </a>
         </Button>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }

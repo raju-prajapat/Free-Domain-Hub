@@ -15,8 +15,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:description", content: "FreeDomainHub is a discovery platform, not a domain registrar or an availability checker." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/about" },
     ],
+    links: [{ rel: "canonical", href: "https://freedomainhub.lovable.app/about" }],
   }),
   component: About,
 });
@@ -40,7 +40,7 @@ function About() {
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
               <Globe className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-bold mb-3">What we do</h3>
+            <h2 className="text-xl font-bold mb-3">What we do</h2>
             <p className="text-muted-foreground leading-relaxed">
               We aggregate and compare free domain and subdomain offerings from trusted hosting providers like Vercel, Netlify, and Cloudflare. Our goal is to help you find a professional-looking URL for your project without any upfront cost.
             </p>
@@ -50,7 +50,7 @@ function About() {
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
               <ShieldCheck className="h-6 w-6" />
             </div>
-            <h3 className="text-xl font-bold mb-3">What we don't do</h3>
+            <h2 className="text-xl font-bold mb-3">What we don't do</h2>
             <p className="text-muted-foreground leading-relaxed">
               We are not a domain registrar. We do not own, manage, or register domains. We also do not guarantee availability; we provide suggestions and link you to the official provider to complete your setup.
             </p>
@@ -69,7 +69,7 @@ function About() {
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-background border border-border shadow-sm">
                   <step.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h4 className="font-bold mb-2">{step.title}</h4>
+                <h3 className="font-bold mb-2">{step.title}</h3>
                 <p className="text-sm text-muted-foreground">{step.desc}</p>
               </div>
             ))}

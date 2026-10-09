@@ -37,8 +37,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/" },
     ],
+    links: [{ rel: "canonical", href: "https://freedomainhub.lovable.app/" }],
   }),
   component: Index,
 });

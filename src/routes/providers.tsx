@@ -32,8 +32,8 @@ export const Route = createFileRoute("/providers")({
       { property: "og:description", content: "Compare eight free hosting and subdomain providers and visit their official websites." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { tagName: "link", rel: "canonical", href: "https://freedomainhub.lovable.app/providers" },
     ],
+    links: [{ rel: "canonical", href: "https://freedomainhub.lovable.app/providers" }],
   }),
   component: ProvidersPage,
 });
@@ -76,7 +76,7 @@ function ProvidersPage() {
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Compare provider types, setup ease, example formats, and official destinations. Suggested names are not availability checks.</p>
         </header>
         <form onSubmit={submit} className="mx-auto mb-6 flex max-w-2xl gap-2">
-          <Input aria-label="Search providers" placeholder="Search providers or features" value={term} maxLength={100} onChange={(event) => setTerm(event.target.value)} />
+          <Input aria-label="Search providers" placeholder="Search provider names or features" value={term} maxLength={100} onChange={(event) => setTerm(event.target.value)} />
           <Button type="submit" className="bg-gradient-primary text-white"><Search className="mr-2 h-4 w-4" />Search</Button>
         </form>
         <div className="mb-8 flex flex-wrap justify-center gap-2" aria-label="Filter providers by type">
@@ -90,10 +90,13 @@ function ProvidersPage() {
             </select>
           </label>
         </div>
-        {filteredProviders.length ? <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {filteredProviders.length ? <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProviders.map((provider) => <article key={provider.id} className="glass-card flex min-w-0 flex-col rounded-xl p-5">
             <div className="flex items-center gap-3">
-            <img src={provider.logo} alt={`${provider.name} logo`} loading="lazy" onError={(event) => { event.currentTarget.hidden = true; }} className="h-9 w-9 rounded-md bg-background object-contain p-1" />
+            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-background p-1">
+              <img src={provider.logo} alt={`${provider.name} logo`} loading="lazy" onError={(event) => { event.currentTarget.hidden = true; const fallback = event.currentTarget.nextElementSibling; if (fallback instanceof HTMLElement) fallback.hidden = false; }} className="h-full w-full object-contain" />
+              <span hidden aria-hidden="true" className="font-display text-xs font-bold text-muted-foreground">{provider.name.slice(0, 2).toUpperCase()}</span>
+            </div>
               <div className="min-w-0"><h2 className="font-display text-lg font-semibold">{provider.name}</h2><p className="text-xs capitalize text-muted-foreground">{provider.category}</p></div>
             </div>
             <p className="mt-4 flex-1 text-sm text-muted-foreground">{provider.description}</p>
