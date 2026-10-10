@@ -111,7 +111,7 @@ export function ResultCard({ s, index }: { s: Suggestion; index: number }) {
           className="bg-gradient-primary flex-1 rounded-xl text-white shadow-md hover:opacity-95 transition-all"
         >
           <a href={isSafeExternalUrl(s.signupUrl) ? s.signupUrl : s.officialUrl} target="_blank" rel="noopener noreferrer" aria-label={`Check ${s.name} signup and confirm availability`}>
-          Check with provider
+          Use This
           </a>
         </Button>
         <Button asChild variant="outline" className="rounded-xl border-border/60 hover:bg-accent group-hover:border-primary/30">
